@@ -1,0 +1,211 @@
+body{
+  background-image: url(/back-ground.webp);
+  background-size: cover;
+  background-position: center;
+  font-family: "Dosis", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  color: #fafafa;
+
+  .main {
+    backdrop-filter: blur(25px);
+    border-radius: 25px;
+    padding: 20px;
+    background-color: #00000047;
+
+    .real-time{
+      display: grid;
+      grid-template-columns: auto auto;
+      padding: 10px;
+      background-color: #0000001c;
+      border-radius: 15px;
+
+      .location {
+        font-size: 25px;
+      }
+
+      .humidity {
+        height: fit-content;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        font-size: 25px;
+
+        svg {
+          font-size: 25px;
+          margin-left: 14px;
+          color: #218eedc9;
+        }
+      }
+
+      .temperature {
+        display: flex;
+        font-size: 50px;
+        flex-direction: row; 
+        align-items: center;
+
+        svg {
+          font-size: 30px;
+          color: #d92c2ccc;
+          margin-right: 10px;
+        }   
+      }
+
+      .wind-calendar {
+        display: flex;
+        font-size: 25px;
+        flex-direction: column;
+        justify-content: center;
+
+        .wind {
+          display: flex;
+          align-items: center;
+          flex-direction: row-reverse;
+          margin-top: 30px;
+
+          svg {
+            font-size: 25px;
+            margin-left: 14px;
+            color: #70c0dd;
+          }
+        }
+
+        .calendar {
+          display: flex;
+          align-items: center;
+          flex-direction: row-reverse;
+          font-size: 25px;
+  
+          svg {
+            font-size: 25px;
+            margin-left: 14px;
+            color: #83e0e3;
+          }
+        }
+
+      }
+
+      .time {
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+        margin-top: 30px;
+        font-size: 25px;
+
+        svg {
+          font-size: 25px;
+          margin-left: 14px;
+          color: goldenrod;
+        }
+      }
+
+      .weather-condition {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: flex-end;
+        font-size: 25px;
+
+        svg {
+          font-size: 150px;
+          color: #e2e21e;
+        }
+      }
+
+      
+    }
+
+    .forecast-weather {
+      ul {
+        margin-top: 28px;
+        padding: 0;
+        display: flex;
+        
+        li {
+          display: flex;
+          background-color: #00000078;
+          border-radius: 10px;
+          justify-items: center;
+          margin: 10px;
+          padding: 20px;
+          flex-direction: column;
+
+          .day-date {
+            display: grid;
+            grid-template-rows: auto auto;
+            width: 100%;
+            margin: 10px;
+          }
+
+          .temp {
+            margin: 10px;
+            display: flex;
+            align-items: center;
+
+            svg {
+              color: #d92c2ccc;
+              margin-right: 5px;
+            }
+          }
+
+          .humidity {
+            margin: 10px;
+            display: flex;
+            align-items: center;
+
+            svg {
+              color: #218eedc9;
+              margin-right: 5px;
+            }
+          }
+
+          .wind {
+            margin: 10px;
+            display: flex;
+            align-items: center;
+
+            svg {
+              color: #70c0dd;
+              margin-right: 5px;
+            }
+          }
+          
+          .weather {
+            margin: 10px;
+            display: flex;
+
+            svg {
+              margin-right: 5px;
+              font-size: 90px;
+              color: #e2e21e;
+            }
+          }
+        }
+      }
+      
+    }
+
+    .weather-graph {
+      margin: 20px;      
+      display: flex;
+      justify-content: center;
+
+      .graph-title {
+        font-size: 32px;
+        margin: 0;    
+      }
+      
+      canvas {
+        height: 400px !important;
+        width: 900px !important;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px;
+        color: beige;
+        font-size: 15px;
+        background-color: #0000001c;
+      } 
+      
+    }
+  }
+}
