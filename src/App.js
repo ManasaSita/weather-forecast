@@ -47,7 +47,7 @@ function App() {
   }, []);
 
   // Render loading state while data is being fetched
-  if (loading) {
+  if (loading || !forecastWeather) {
     return <div>Loading...</div>;
   }
 
