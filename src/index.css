@@ -8,6 +8,16 @@ body{
   font-style: normal;
   color: #fafafa;
 
+  .loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 70px;
+    position: absolute;
+    top: 50%;
+    left: 34%;
+  }
+
   .main {
     backdrop-filter: blur(25px);
     border-radius: 25px;
@@ -206,6 +216,47 @@ body{
         background-color: #0000001c;
       } 
       
+    }
+
+    form {
+      display: flex;
+      justify-content: center;
+      height: 45px;
+      margin-bottom: 15px;
+
+      .search {
+        display: flex;
+        width: 25%;
+        background: #71449ad6;
+        border: 1px #0000005e solid;
+        border-radius: 23px;
+
+        input {
+          background: none;
+          border: none;
+          padding: 18px;
+          width: 75%;
+        }
+
+        ::placeholder {
+          color: white;
+          font-size: 15px;
+          opacity: 1; 
+        }
+
+        textarea:focus, input:focus {
+          font-size: 19px;
+          color: #ffffff;
+          outline: none;
+        }
+        
+        svg {
+          font-size: 32px;
+          margin-top: 5px;
+        }
+
+      }
+
     }
   }
 }

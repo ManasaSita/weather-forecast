@@ -3,7 +3,7 @@ import { IoIosPartlySunny } from "react-icons/io";
 import { FaDroplet, FaClock, FaTemperatureHalf, FaCalendarDays, FaWind } from "react-icons/fa6";
 import { BsCloudsFill, BsCloudSlashFill } from "react-icons/bs";
 
-const RealTimeWeather = ({ realTimeWeather }) => {
+const RealTimeWeather = ({ location, realTimeWeather }) => {
   const { precipitationProbability, cloudCover, weatherCode } = realTimeWeather;
 
   // Determine weather condition based on available data
@@ -51,7 +51,7 @@ const RealTimeWeather = ({ realTimeWeather }) => {
 
   return (
     <div className='real-time'>
-      <div className='location'>Bommanahalli, Bengaluru</div>
+      <div className='location'>{location}</div>
       <div className='time'><FaClock/> {currentHour} : {currentMinute} </div>
       <div className='weather-condition'> {weatherIcon}{weatherCondition}</div>
       <div className='wind-calendar'> 

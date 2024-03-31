@@ -66,4 +66,18 @@ const fetchForecastWeather = async (latitude, longitude, startTime, endTime) => 
   }
 };
 
-export { fetchRealTimeWeather, fetchForecastWeather };
+// Function to fetch longitude and latitude based on location input using HERE Maps Geocoding API
+const fetchCoordinates = async (location) => {
+  const hereMapsApiKey = 'BHQPxs1cWR8rbDVL7nIu4BIv6V65u7xXnjNxmbLuQZE';
+  const url = `https://geocode.search.hereapi.com/v1/geocode?q=${encodeURIComponent(location)}&apiKey=${hereMapsApiKey}`;
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching geo coordinates:', error);
+    return null;
+  }
+};
+
+export { fetchRealTimeWeather, fetchForecastWeather, fetchCoordinates };
