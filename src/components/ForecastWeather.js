@@ -1,26 +1,20 @@
 import React from 'react';
-import { IoIosPartlySunny } from "react-icons/io";
+import { IoIosPartlySunny, IoMdRainy } from "react-icons/io";
 import { BsCloudsFill, BsCloudSlashFill } from "react-icons/bs";
 import { FaDroplet, FaClock, FaTemperatureHalf, FaCalendarDays, FaWind } from "react-icons/fa6";
+import weatherCodes from '../weatherCodes';
 
 const ForecastWeather = ({ forecastData }) => {
 
-  let weatherCondition;
-  let weatherIcon;
-  const getWeatherConditiondata = (values) => {
-    if (values.precipitationProbabilityAvg > 0) {
-      weatherIcon = <BsCloudsFill/>;
-      weatherCondition = 'Mostly Rainy';
-    } else if (values.cloudCoverAvg > 50) {
-      weatherIcon = <BsCloudsFill/>;
-      weatherCondition = 'Mostly Cloudy';
-    } else if (values.weatherCodeMax >= 1000) {
-      weatherIcon = < IoIosPartlySunny />
-      weatherCondition = 'Mostly Sunny';
-    } else {
-      weatherIcon = < BsCloudSlashFill/>
-      weatherCondition = 'Unknown';
-    }
+  const getWeatherCondition = (weatherCode) => {
+    return weatherCodes[weatherCode] || 'Unknown';
+  };
+
+  const getWeatherIcon = (weatherCode) => {
+    if (weatherCode === 1001) return <BsCloudsFill />;
+    if (weatherCode === 1000) return <IoIosPartlySunny />;
+    if (weatherCode >= 4000 && weatherCode < 5000) return <IoMdRainy />;
+    return <BsCloudSlashFill />;
   };
 
   const getMonthName = (monthNumber) => {
@@ -55,9 +49,8 @@ const ForecastWeather = ({ forecastData }) => {
               <div>{getDateAndMonth(data.time)}</div> 
             </div>
             <div className='weather'>
-              {getWeatherConditiondata(data.values)}
-              <div>{weatherIcon}</div>
-              <div>{weatherCondition} </div>
+              <div>{getWeatherIcon(data.values.weatherCodeMin)}</div>
+              <div>{getWeatherCondition(data.values.weatherCodeMin)} </div>
             </div>
             <div className='temp'>
               < FaTemperatureHalf/>
@@ -69,7 +62,7 @@ const ForecastWeather = ({ forecastData }) => {
             </div>
             <div className='wind'>
               <FaWind/>
-              <div>{data.values.windSpeedAvg} %</div>
+              <div>{data.values.windSpeedAvg} m/s</div>
             </div>
           </li>
         ))}

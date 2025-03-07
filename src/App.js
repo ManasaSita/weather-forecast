@@ -12,14 +12,16 @@ function App() {
   const [error, setError] = useState(null);
   const [location, setLocation] = useState('Bommanahalli, Bengaluru');
   const [coordinates, setCoordinates] = useState({ lat: 12.911541, lng: 77.623495 });
+  const [getLocation, setGetLocation] = useState('Bommanahalli, Bengaluru');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (location.trim() !== '') { // Check if there is input in the form
       try {
         const coordinatesData = await fetchCoordinates(location);
+        setGetLocation(coordinatesData.items[0].title);
         setCoordinates(coordinatesData.items[0].position);
-        setLocation(coordinatesData.items[0].title)
+        setLocation(coordinatesData.items[0].title);
         setLoading(true); // Set loading to true when fetching new coordinates
       } catch (error) {
         console.error('Error fetching coordinates:', error);
@@ -88,7 +90,7 @@ function App() {
           <FiSearch type='submit' onClick={handleSubmit}/>
         </div>
       </form>
-      <RealTimeWeather location = {location} realTimeWeather = {realTimeWeather} />
+      <RealTimeWeather getLocation={getLocation} realTimeWeather = {realTimeWeather} />
       <WeatherGraph  realTimeWeather = {realTimeWeather} forecastData={forecastWeather} />
       <ForecastWeather forecastData={forecastWeather} />
     </div>

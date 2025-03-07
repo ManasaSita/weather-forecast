@@ -121,7 +121,7 @@ const WeatherGraph = ({ realTimeWeather, forecastData }) => {
                 title: {
                     display: true,
                     color: '#fafafa',
-                    text: 'Temperature (°C)', // Y-axis title
+                    text: 'Temperature (°C) / Humidity (%)', // Y-axis title
                 },
               },
             },
